@@ -1,8 +1,16 @@
-logs_storage = []
+from fastapi import APIRouter, Depends
+from sqlalchemy.ext.asyncio import AsyncSession
+from app.models.log_models import LogShema
+from app.config import get_db
+from app.crud.log_crud import get_logs_filtered, create_log
 
-async def get_logs() -> list[str]:
-    return logs_storage
+router = APIRouter()
 
-async def add_log(log: str):
-    logs_storage.append(log)
-    return {'message': 'Log added', 'total': len(logs_storage)}
+@router.get("/logs")
+async def get_log(level: str|None = None, session: AsyncSession = Depends(get_db)):
+    return await get_logs_filtered(session, level=level)
+
+@router.post("/add_log")
+async def add_log(log: LogShema, session: AsyncSession = Depends(get_db)):
+    save_log = await create_log(session, log)
+    return {"status": "Лог добавлен", "id": save_log.id}

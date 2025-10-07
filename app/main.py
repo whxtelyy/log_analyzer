@@ -1,7 +1,13 @@
 from fastapi import FastAPI
-from app.api.logs import get_logs, add_log
+from app.api import logs
+from app.config import init_db
+from contextlib import asynccontextmanager
 
-app = FastAPI(title="Log Analyzer")
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    await init_db()
+    yield
 
-app.get("/logs")(get_logs)
-app.post("/logs")(add_log)
+app = FastAPI(title="Log Analyzer", lifespan=lifespan)
+
+app.include_router(logs.router)
