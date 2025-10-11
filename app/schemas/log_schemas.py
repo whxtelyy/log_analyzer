@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase
-from sqlalchemy import String, DateTime, Text
+from sqlalchemy import String, DateTime, Text, Index
 from datetime import datetime
 from typing import Optional
 
@@ -10,11 +10,11 @@ class User(Base):
     __tablename__ = "user"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    username: Mapped[str] = mapped_column(String(20))
+    username: Mapped[str] = mapped_column(String(20), unique=True)
     password: Mapped[str] = mapped_column(String(20))
 
     def __repr__(self):
-        return f'id = {self.id!r}, login= {self.username!r}, password= {self.password!r}'
+        return f'id = {self.id!r}, login= {self.username!r}'
 
 class LogDB(Base):
     __tablename__ = "log"
@@ -25,6 +25,13 @@ class LogDB(Base):
     service: Mapped[str] = mapped_column(String(100))
     message: Mapped[str] = mapped_column(String())
     metadata_json: Mapped[Optional[str]] = mapped_column(Text(), nullable=True)
+
+    __table_args__ = (
+        Index("index_log_timestamp", "timestamp"),
+        Index("index_log_level", "level"),
+        Index("index_log_service", "service"),
+        Index("idx_log_level_service", "level", "service"),
+    )
 
     def __repr__(self):
         return (f'id = {self.id!r}, timestamp = {self.timestamp!r},'
