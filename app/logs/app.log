@@ -183,3 +183,100 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-10-11 02:02:14,301 - security.py - INFO - Аутентифицирован пользователь: bebra (ID: 18)
 2025-10-11 02:02:14,301 - logs.py - ERROR - Использован неверный формат даты в /logs
 2025-10-11 02:03:10,234 - main.py - INFO - Приложение завершает работу
+2025-10-12 01:43:43,019 - main.py - INFO - Приложение Log Analyzer запущено и готово принимать запросы
+2025-10-12 01:50:01,369 - main.py - INFO - Приложение Log Analyzer запущено и готово принимать запросы
+2025-10-12 01:50:01,676 - log_crud.py - INFO - Новый пользователь testuser был успешно создан
+2025-10-12 01:50:01,676 - logs.py - INFO - Пользователь testuser успешно зарегистрирован
+2025-10-12 01:50:01,676 - _client.py - INFO - HTTP Request: POST http://test/auth/register "HTTP/1.1 200 OK"
+2025-10-12 01:50:01,902 - log_crud.py - INFO - Новый пользователь duplicate был успешно создан
+2025-10-12 01:50:01,902 - logs.py - INFO - Пользователь duplicate успешно зарегистрирован
+2025-10-12 01:50:01,903 - _client.py - INFO - HTTP Request: POST http://test/auth/register "HTTP/1.1 200 OK"
+2025-10-12 01:50:01,904 - logs.py - WARNING - Попытка регистрации существующего пользователя: duplicate
+2025-10-12 01:50:01,904 - _client.py - INFO - HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2025-10-12 01:50:01,908 - logs.py - WARNING - Попытка входа несуществующего пользователя: loginuser
+2025-10-12 01:50:01,909 - _client.py - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 401 Unauthorized"
+2025-10-12 01:50:01,910 - logs.py - WARNING - Попытка входа несуществующего пользователя: loginuser
+2025-10-12 01:50:01,910 - _client.py - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 401 Unauthorized"
+2025-10-12 01:50:02,043 - _client.py - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 422 Unprocessable Entity"
+2025-10-12 01:50:02,054 - _client.py - INFO - HTTP Request: POST http://test/add_log "HTTP/1.1 200 OK"
+2025-10-12 01:50:02,518 - security.py - INFO - Сгенерирован токен для пользователя admin (id: 3)
+2025-10-12 01:50:02,518 - _client.py - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 200 OK"
+2025-10-12 01:50:02,521 - _client.py - INFO - HTTP Request: POST http://test/add_log "HTTP/1.1 200 OK"
+2025-10-12 01:50:02,523 - security.py - INFO - Аутентифицирован пользователь: admin (ID: 3)
+2025-10-12 01:50:02,525 - log_crud.py - INFO - Передано 2 логов (всего по фильтру: 2). Фильтры: level=None, service=None, start=None, end=None, limit=100, offset=0
+2025-10-12 01:50:02,526 - logs.py - INFO - Пользователь admin получил 2 записей (всего по фильтру: 2)
+2025-10-12 01:50:02,526 - _client.py - INFO - HTTP Request: GET http://test/logs "HTTP/1.1 200 OK"
+2025-10-12 02:05:21,279 - main.py - INFO - Приложение Log Analyzer запущено и готово принимать запросы
+2025-10-12 02:05:21,582 - log_crud.py - INFO - Новый пользователь testuser был успешно создан
+2025-10-12 02:05:21,582 - logs.py - INFO - Пользователь testuser успешно зарегистрирован
+2025-10-12 02:05:21,582 - _client.py - INFO - HTTP Request: POST http://test/auth/register "HTTP/1.1 200 OK"
+2025-10-12 02:05:21,811 - log_crud.py - INFO - Новый пользователь duplicate был успешно создан
+2025-10-12 02:05:21,811 - logs.py - INFO - Пользователь duplicate успешно зарегистрирован
+2025-10-12 02:05:21,811 - _client.py - INFO - HTTP Request: POST http://test/auth/register "HTTP/1.1 200 OK"
+2025-10-12 02:05:21,812 - logs.py - WARNING - Попытка регистрации существующего пользователя: duplicate
+2025-10-12 02:05:21,812 - _client.py - INFO - HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2025-10-12 02:05:22,041 - log_crud.py - INFO - Новый пользователь loginuser был успешно создан
+2025-10-12 02:05:22,041 - logs.py - INFO - Пользователь loginuser успешно зарегистрирован
+2025-10-12 02:05:22,041 - _client.py - INFO - HTTP Request: POST http://test/auth/register "HTTP/1.1 200 OK"
+2025-10-12 02:05:22,266 - security.py - INFO - Сгенерирован токен для пользователя loginuser (id: 1)
+2025-10-12 02:05:22,266 - _client.py - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 200 OK"
+2025-10-12 02:05:22,271 - _client.py - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 422 Unprocessable Entity"
+2025-10-12 02:05:22,418 - _client.py - INFO - HTTP Request: POST http://test/add_log "HTTP/1.1 200 OK"
+2025-10-12 02:05:22,867 - security.py - INFO - Сгенерирован токен для пользователя admin (id: 1)
+2025-10-12 02:05:22,868 - _client.py - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 200 OK"
+2025-10-12 02:05:22,871 - _client.py - INFO - HTTP Request: POST http://test/add_log "HTTP/1.1 200 OK"
+2025-10-12 02:05:22,873 - security.py - INFO - Аутентифицирован пользователь: admin (ID: 1)
+2025-10-12 02:05:22,875 - log_crud.py - INFO - Передано 1 логов (всего по фильтру: 1). Фильтры: level=None, service=None, start=None, end=None, limit=100, offset=0
+2025-10-12 02:05:22,875 - logs.py - INFO - Пользователь admin получил 1 записей (всего по фильтру: 1)
+2025-10-12 02:05:22,875 - _client.py - INFO - HTTP Request: GET http://test/logs "HTTP/1.1 200 OK"
+2025-10-12 02:05:23,322 - security.py - INFO - Сгенерирован токен для пользователя admin (id: 1)
+2025-10-12 02:05:23,322 - _client.py - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 200 OK"
+2025-10-12 02:05:23,324 - _client.py - INFO - HTTP Request: POST http://test/add_log "HTTP/1.1 200 OK"
+2025-10-12 02:05:23,326 - _client.py - INFO - HTTP Request: POST http://test/add_log "HTTP/1.1 200 OK"
+2025-10-12 02:05:23,327 - security.py - INFO - Аутентифицирован пользователь: admin (ID: 1)
+2025-10-12 02:05:23,330 - log_crud.py - INFO - Передано 1 логов (всего по фильтру: 1). Фильтры: level=ERROR, service=None, start=None, end=None, limit=100, offset=0
+2025-10-12 02:05:23,330 - logs.py - INFO - Пользователь admin получил 1 записей (всего по фильтру: 1)
+2025-10-12 02:05:23,330 - _client.py - INFO - HTTP Request: GET http://test/logs?level=ERROR "HTTP/1.1 200 OK"
+2025-10-12 02:05:23,331 - security.py - INFO - Аутентифицирован пользователь: admin (ID: 1)
+2025-10-12 02:05:23,333 - log_crud.py - INFO - Передано 1 логов (всего по фильтру: 1). Фильтры: level=None, service=service_a, start=None, end=None, limit=100, offset=0
+2025-10-12 02:05:23,333 - logs.py - INFO - Пользователь admin получил 1 записей (всего по фильтру: 1)
+2025-10-12 02:05:23,333 - _client.py - INFO - HTTP Request: GET http://test/logs?service=service_a "HTTP/1.1 200 OK"
+2025-10-12 02:15:50,908 - main.py - INFO - Приложение Log Analyzer запущено и готово принимать запросы
+2025-10-12 02:15:51,210 - log_crud.py - INFO - Новый пользователь testuser был успешно создан
+2025-10-12 02:15:51,210 - logs.py - INFO - Пользователь testuser успешно зарегистрирован
+2025-10-12 02:15:51,210 - _client.py - INFO - HTTP Request: POST http://test/auth/register "HTTP/1.1 200 OK"
+2025-10-12 02:15:51,437 - log_crud.py - INFO - Новый пользователь duplicate был успешно создан
+2025-10-12 02:15:51,437 - logs.py - INFO - Пользователь duplicate успешно зарегистрирован
+2025-10-12 02:15:51,437 - _client.py - INFO - HTTP Request: POST http://test/auth/register "HTTP/1.1 200 OK"
+2025-10-12 02:15:51,438 - logs.py - WARNING - Попытка регистрации существующего пользователя: duplicate
+2025-10-12 02:15:51,439 - _client.py - INFO - HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2025-10-12 02:15:51,665 - log_crud.py - INFO - Новый пользователь loginuser был успешно создан
+2025-10-12 02:15:51,665 - logs.py - INFO - Пользователь loginuser успешно зарегистрирован
+2025-10-12 02:15:51,666 - _client.py - INFO - HTTP Request: POST http://test/auth/register "HTTP/1.1 200 OK"
+2025-10-12 02:15:51,891 - security.py - INFO - Сгенерирован токен для пользователя loginuser (id: 1)
+2025-10-12 02:15:51,892 - _client.py - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 200 OK"
+2025-10-12 02:15:51,897 - logs.py - WARNING - Попытка входа несуществующего пользователя: nonexistentuser
+2025-10-12 02:15:51,897 - _client.py - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 401 Unauthorized"
+2025-10-12 02:15:51,902 - _client.py - INFO - HTTP Request: POST http://test/add_log "HTTP/1.1 401 Unauthorized"
+2025-10-12 02:15:52,348 - security.py - INFO - Сгенерирован токен для пользователя admin (id: 1)
+2025-10-12 02:15:52,348 - _client.py - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 200 OK"
+2025-10-12 02:15:52,350 - security.py - INFO - Аутентифицирован пользователь: admin (ID: 1)
+2025-10-12 02:15:52,354 - _client.py - INFO - HTTP Request: POST http://test/add_log "HTTP/1.1 200 OK"
+2025-10-12 02:15:52,355 - security.py - INFO - Аутентифицирован пользователь: admin (ID: 1)
+2025-10-12 02:15:52,357 - log_crud.py - INFO - Передано 1 логов (всего по фильтру: 1). Фильтры: level=None, service=None, start=None, end=None, limit=100, offset=0
+2025-10-12 02:15:52,357 - logs.py - INFO - Пользователь admin получил 1 записей (всего по фильтру: 1)
+2025-10-12 02:15:52,358 - _client.py - INFO - HTTP Request: GET http://test/logs "HTTP/1.1 200 OK"
+2025-10-12 02:15:52,803 - security.py - INFO - Сгенерирован токен для пользователя admin (id: 1)
+2025-10-12 02:15:52,804 - _client.py - INFO - HTTP Request: POST http://test/auth/login "HTTP/1.1 200 OK"
+2025-10-12 02:15:52,805 - security.py - INFO - Аутентифицирован пользователь: admin (ID: 1)
+2025-10-12 02:15:52,807 - _client.py - INFO - HTTP Request: POST http://test/add_log "HTTP/1.1 200 OK"
+2025-10-12 02:15:52,808 - security.py - INFO - Аутентифицирован пользователь: admin (ID: 1)
+2025-10-12 02:15:52,809 - _client.py - INFO - HTTP Request: POST http://test/add_log "HTTP/1.1 200 OK"
+2025-10-12 02:15:52,810 - security.py - INFO - Аутентифицирован пользователь: admin (ID: 1)
+2025-10-12 02:15:52,813 - log_crud.py - INFO - Передано 1 логов (всего по фильтру: 1). Фильтры: level=ERROR, service=None, start=None, end=None, limit=100, offset=0
+2025-10-12 02:15:52,813 - logs.py - INFO - Пользователь admin получил 1 записей (всего по фильтру: 1)
+2025-10-12 02:15:52,813 - _client.py - INFO - HTTP Request: GET http://test/logs?level=ERROR "HTTP/1.1 200 OK"
+2025-10-12 02:15:52,814 - security.py - INFO - Аутентифицирован пользователь: admin (ID: 1)
+2025-10-12 02:15:52,816 - log_crud.py - INFO - Передано 1 логов (всего по фильтру: 1). Фильтры: level=None, service=service_a, start=None, end=None, limit=100, offset=0
+2025-10-12 02:15:52,816 - logs.py - INFO - Пользователь admin получил 1 записей (всего по фильтру: 1)
+2025-10-12 02:15:52,816 - _client.py - INFO - HTTP Request: GET http://test/logs?service=service_a "HTTP/1.1 200 OK"

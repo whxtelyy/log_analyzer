@@ -80,7 +80,7 @@ async def get_stats(
         start_time: str|None = None,
         end_time: str|None = None,
         service: str|None = None,
-        group_by: str|None = Query(None,  regex="^(hour|day|level|service)$"),
+        group_by: str|None = Query(None, pattern="^(hour|day|level|service)$"),
         current_user: User = Depends(get_current_user)
 ):
     logger.debug(f"Пользователь '{current_user.username}' запрашивает статистику (group_by={group_by})")
@@ -120,9 +120,13 @@ async def get_stats(
     return {"stats": stats}
 
 @router.post("/add_log")
-async def add_log(log: LogShema, session: AsyncSession = Depends(get_db)):
+async def add_log(
+        log: LogShema,
+        session: AsyncSession = Depends(get_db),
+        current_user: User = Depends(get_current_user)
+):
     save_log = await create_log(session, log)
-    logger.debug(f"Лог успешно добавлен. 'id лога': {save_log.id}")
+    logger.debug(f"Пользователь {current_user.username} добавил лог (ID: {save_log.id})")
     return {"status": "Лог добавлен", "id": save_log.id}
 
 @router.post("/auth/register")
