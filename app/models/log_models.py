@@ -1,6 +1,8 @@
-from pydantic import BaseModel, StringConstraints
 from datetime import datetime
-from typing import Optional, Dict, Annotated
+from typing import Annotated, Dict, Optional
+
+from pydantic import BaseModel, StringConstraints
+
 
 class LogShema(BaseModel):
     timestamp: datetime
@@ -9,9 +11,11 @@ class LogShema(BaseModel):
     message: Annotated[str, StringConstraints(min_length=1)]
     metadata: Optional[Dict] = None
 
+
 class UserRegister(BaseModel):
     username: Annotated[str, StringConstraints(min_length=4)]
     password: Annotated[str, StringConstraints(min_length=6)]
+
 
 class UserLogin(BaseModel):
     username: Annotated[str, StringConstraints(min_length=4)]

@@ -1,16 +1,19 @@
+import logging
+from contextlib import asynccontextmanager
+
 import uvicorn
+from dotenv import load_dotenv
 from fastapi import FastAPI
+
 from app.api import logs
 from app.config import init_db
-from contextlib import asynccontextmanager
-from dotenv import load_dotenv
 from app.utils.logger import setup_logger
-import logging
 
 setup_logger()
 logger = logging.getLogger(__name__)
 
 load_dotenv()
+
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
@@ -20,6 +23,7 @@ async def lifespan(_app: FastAPI):
     yield
 
     logger.info("Приложение завершает работу")
+
 
 app = FastAPI(title="Log Analyzer", lifespan=lifespan)
 app.include_router(logs.router)

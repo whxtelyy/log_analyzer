@@ -1,10 +1,13 @@
-from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase
-from sqlalchemy import String, DateTime, Text, Index
 from datetime import datetime
 from typing import Optional
 
+from sqlalchemy import DateTime, Index, String, Text
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+
+
 class Base(DeclarativeBase):
     pass
+
 
 class User(Base):
     __tablename__ = "user"
@@ -14,7 +17,8 @@ class User(Base):
     password: Mapped[str] = mapped_column(String(20))
 
     def __repr__(self):
-        return f'id = {self.id!r}, login= {self.username!r}'
+        return f"id = {self.id!r}, login= {self.username!r}"
+
 
 class LogDB(Base):
     __tablename__ = "log"
@@ -34,6 +38,7 @@ class LogDB(Base):
     )
 
     def __repr__(self):
-        return (f'id = {self.id!r}, timestamp = {self.timestamp!r},'
-                f' level = {self.level!r}, service = {self.service!r}, message = {self.message!r}'
+        return (
+            f"id = {self.id!r}, timestamp = {self.timestamp!r},"
+            f" level = {self.level!r}, service = {self.service!r}, message = {self.message!r}"
         )
