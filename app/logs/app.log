@@ -280,3 +280,7 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-10-12 02:15:52,816 - log_crud.py - INFO - Передано 1 логов (всего по фильтру: 1). Фильтры: level=None, service=service_a, start=None, end=None, limit=100, offset=0
 2025-10-12 02:15:52,816 - logs.py - INFO - Пользователь admin получил 1 записей (всего по фильтру: 1)
 2025-10-12 02:15:52,816 - _client.py - INFO - HTTP Request: GET http://test/logs?service=service_a "HTTP/1.1 200 OK"
+2025-10-12 08:20:40,243 - main.py - INFO - Приложение Log Analyzer запущено и готово принимать запросы
+2025-10-12 08:20:40,244 - main.py - INFO - Началась инициализация базы данных
+2025-10-12 08:20:40,253 - main.py - INFO - База данных успешно инициализирована
+2025-10-12 08:20:50,687 - main.py - INFO - Приложение завершает работу

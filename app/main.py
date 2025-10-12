@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI
 from app.api import logs
 from app.config import init_db
@@ -24,3 +25,6 @@ app = FastAPI(title="Log Analyzer", lifespan=lifespan)
 app.include_router(logs.router)
 
 logger.info("Приложение Log Analyzer запущено и готово принимать запросы")
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000)
